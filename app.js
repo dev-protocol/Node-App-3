@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/servicios", (req, res) => {
-  res.send("Estás en la página de servicios");
+  res.render("servicio", { tituloServicios: "Titulo Servicio" });
 });
 
 app.listen(port, () => {
@@ -40,5 +40,8 @@ app.listen(port, () => {
 });
 
 app.use((req, res, next) => {
-  res.status(404).sendFile(__dirname + "/public/404.html");
+  res.status(404).render("404", {
+    titulo: "Titulo de 404",
+    descripcion: "Página 404",
+  });
 });
