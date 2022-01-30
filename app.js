@@ -1,30 +1,26 @@
-// getPokemon = async () => {
-//   try {
-//     const res = await fetch("url");
-//     const data = await res.json();
-//     console.log(data.cowsay);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// const http = require("http");
-// const server = http.createServer((req, res) => {
-//   res.end("estoy respondiendo a tu solicitud v2");
-// });
-
-// const port = 4000;
-
-// server.listen(port, () => {
-//   console.log("escuchando solicitudes");
-// });
 const express = require("express");
 const app = express();
 const port = 3000;
-
+/* -------------------------------------------------------------------------- */
+/*                             Conexion a MongoDB                             */
+/* -------------------------------------------------------------------------- */
+const mongoose = require("mongoose");
+const user = "UserVet";
+const pass = "JRIF8fYIb5JFhMlr";
+const dbname = "veterinaria";
+const uri = `mongodb+srv://${user}:${pass}@cluster0.kmtoc.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+mongoose
+  .connect(uri)
+  .then(() => console.log("Base de datos Conectada"))
+  .catch((e) => console.log(e));
+/* -------------------------------------------------------------------------- */
+/*                         Asignar el motor de vistas                         */
+/* -------------------------------------------------------------------------- */
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
-
+/* -------------------------------------------------------------------------- */
+/*                   Declarar la ruta de la carpeta estatica                  */
+/* -------------------------------------------------------------------------- */
 app.use(express.static(__dirname + "/public"));
 /* -------------------------------------------------------------------------- */
 /*                                  Rutas Web                                 */
