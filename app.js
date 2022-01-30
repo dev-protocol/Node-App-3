@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 /*                             Conexion a MongoDB                             */
 /* -------------------------------------------------------------------------- */
 const mongoose = require("mongoose");
+
 const uri = `mongodb+srv://${process.env.USER_DB}:${process.env.PASSWORD}@cluster0.kmtoc.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
 mongoose
   .connect(uri)

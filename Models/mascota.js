@@ -5,7 +5,7 @@ const mascotaShema = new Schema({
   desripcion: String,
 });
 /* -------------------------------------------------------------------------- */
-/*                             Creacion del modelo                            */
+/*                             Creación del modelo                            */
 /* -------------------------------------------------------------------------- */
 const Mascota = mongoose.model("Mascota", mascotaShema);
 module.exports = Mascota;
