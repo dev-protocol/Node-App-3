@@ -1,14 +1,12 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+require("dotenv").config();
+const port = process.env.PORT || 3000;
 /* -------------------------------------------------------------------------- */
 /*                             Conexion a MongoDB                             */
 /* -------------------------------------------------------------------------- */
 const mongoose = require("mongoose");
-const user = "UserVet";
-const pass = "JRIF8fYIb5JFhMlr";
-const dbname = "veterinaria";
-const uri = `mongodb+srv://${user}:${pass}@cluster0.kmtoc.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.USER_DB}:${process.env.PASSWORD}@cluster0.kmtoc.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
 mongoose
   .connect(uri)
   .then(() => console.log("Base de datos Conectada"))
