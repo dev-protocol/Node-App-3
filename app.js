@@ -26,22 +26,18 @@ app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 
 app.use(express.static(__dirname + "/public"));
-
-app.get("/", (req, res) => {
-  res.render("index", { titulo: "mi titulo dinámico2" });
-});
-
-app.get("/servicios", (req, res) => {
-  res.render("servicio", { tituloServicios: "Titulo Servicio" });
-});
-
-app.listen(port, () => {
-  console.log("Servidor a su servicio en el puerto ", port);
-});
-
+/* -------------------------------------------------------------------------- */
+/*                                  Rutas Web                                 */
+/* -------------------------------------------------------------------------- */
+app.use("/", require("./Router/web"));
+app.use("/mascotas", require("./Router/Mascotas"));
 app.use((req, res, next) => {
   res.status(404).render("404", {
     titulo: "Titulo de 404",
     descripcion: "Página 404",
   });
+});
+
+app.listen(port, () => {
+  console.log("Servidor a su servicio en el puerto ", port);
 });
