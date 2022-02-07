@@ -1,0 +1,13 @@
+<%- include("template/head", {tituloWeb: "Nueva Mascota"}) %>
+
+<body>
+  <div class="container">
+    <form action="/mascotas" method="post">
+      <input type="text" name="nombre" id="" placeholder="Nombre" class="form-control my-2">
+      <input type="text" name="descripcion" id="" placeholder="Descripcion" class="form-control my-2">
+      <button class="btn btn-success d-block" type="submit">Agregar</button>
+    </form>
+  </div>
+</body>
+
+</html>

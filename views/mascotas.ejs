@@ -1,27 +1,29 @@
 <%- include("template/head", {tituloWeb: "Página de inicio" }) %>
 
-    <body>
-        <h1 class="text-center text-primary">Mascotas</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">nombre</th>
-                    <th scope="col">Accion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% if (arrayMascotas.length > 0) { %>
-                    <% arrayMascotas.forEach(element=> { %>
-                        <tr>
-                            <th scope="row"><%= element.id %> </th>
-                            <td><%= element.nombre %></td>
-                            <td><button class="btn btn-primary">Modificar</button></td>
-                        </tr>
-                        <% }) %>
-                            <% } %>
-            </tbody>
-        </table>
-    </body>
+<body>
+  <a class="btn btn-success my-5 d-block" href="/mascotas/crear">Nueva Mascota</a>
+  <h1 class="text-center text-primary">Mascotas</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">nombre</th>
+        <th scope="col">descripcion</th>
+        <th scope="col">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (arrayMascotas.length > 0) { %> <% arrayMascotas.forEach(element=> {
+      %>
+      <tr>
+        <th scope="row"><%= element.id %></th>
+        <td><%= element.nombre %></td>
+        <td><%= element.descripcion %></td>
+        <td><button class="btn btn-primary">Modificar</button></td>
+      </tr>
+      <% }) %> <% } %>
+    </tbody>
+  </table>
+</body>
 
-    </html>
+</html>
