@@ -22,6 +22,25 @@ router.post("/", async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-  // console.log(body);
+});
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const mascota = await Mascota.findOne({ _id: id });
+    res.render("detalle", {
+      mascota,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const mascota = await Mascota.findByIdAndDelete({ _id: id });
+    res.redirect("/mascotas");
+  } catch (error) {
+    console.log(error);
+  }
 });
 module.exports = router;

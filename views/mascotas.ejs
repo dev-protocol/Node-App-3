@@ -13,15 +13,24 @@
       </tr>
     </thead>
     <tbody>
-      <% if (arrayMascotas.length > 0) { %> <% arrayMascotas.forEach(element=> {
-      %>
+      <% if (arrayMascotas.length> 0) { %> <% arrayMascotas.forEach(element=> {
+            %>
       <tr>
-        <th scope="row"><%= element.id %></th>
-        <td><%= element.nombre %></td>
-        <td><%= element.descripcion %></td>
-        <td><button class="btn btn-primary">Modificar</button></td>
+        <th scope="row">
+          <%= element.id %>
+        </th>
+        <td>
+          <%= element.nombre %>
+        </td>
+        <td>
+          <%= element.descripcion %>
+        </td>
+        <td><a class="btn btn-primary" href="mascotas/<%= element.id %>">Modificar</a>
+          <a class="btn btn-warning" href="mascotas/eliminar/<%= element.id %>">Eliminar</a>
+        </td>
       </tr>
-      <% }) %> <% } %>
+      <% }) %>
+      <% } %>
     </tbody>
   </table>
 </body>
