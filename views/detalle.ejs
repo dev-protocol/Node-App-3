@@ -5,6 +5,28 @@
   <h1><%= mascota._id %></h1>
   <h2><%= mascota.nombre %></h2>
   <h2><%= mascota.descripcion %></h2>
+  <button class="btn btn-warning" id="btn-eliminar" data-id="<%= mascota._id %>">Eliminar</button>
 </body>
 
 </html>
+<script>
+  const btnEliminar = document.querySelector("#btn-eliminar");
+  btnEliminar.addEventListener("click", async () => {
+    console.log("click");
+    const id = btnEliminar.dataset.id;
+    try {
+      const data = await fetch(`/mascotas/${id}`, {
+        method: 'delete'
+      });
+      const res = await data.json();
+      if (res.estado) {
+        window.location.href = "/mascotas";
+      } else {
+        console.log(res)
+      }
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+</script>

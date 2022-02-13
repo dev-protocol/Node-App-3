@@ -38,7 +38,16 @@ router.delete("/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const mascota = await Mascota.findByIdAndDelete({ _id: id });
-    res.redirect("/mascotas");
+    if (mascota) {
+      // res.redirect("/mascotas");
+      res.json({
+        estado: true,
+      });
+    } else {
+      res.json({
+        estado: false,
+      });
+    }
   } catch (error) {
     console.log(error);
   }
