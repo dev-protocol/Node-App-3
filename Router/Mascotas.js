@@ -52,4 +52,18 @@ router.delete("/:id", async (req, res) => {
     console.log(error);
   }
 });
+router.put("/:id", async (req, res) => {
+  const id = req.params.id;
+  const body = req.body;
+  try {
+    const mascotaDB = await Mascota.findByIdAndUpdate(id, body, {
+      useFindAndModify: false,
+    });
+    res.json({
+      estado: true,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
 module.exports = router;
