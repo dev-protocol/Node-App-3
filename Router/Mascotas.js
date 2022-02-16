@@ -63,6 +63,9 @@ router.put("/:id", async (req, res) => {
       estado: true,
     });
   } catch (error) {
+    res.json({
+      estado: true,
+    });
     console.log(error);
   }
 });
